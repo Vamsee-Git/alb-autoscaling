@@ -75,10 +75,10 @@ jobs:
       - name: Terraform Plan
         run: |
           cd Infra
-          terraform plan -var-file=../Infra/env/dev/terraform.tfvars
+          terraform plan -var-file=../environments/dev/terraform.tfvars
     
       # Step: Apply Terraform
       - name: Apply Terraform
         run: |
           cd Infra
-          terraform apply -auto-approve -var-file=../Infra/env/dev/terraform.tfvars
+          terraform apply -auto-approve -var-file=../environments/dev/terraform.tfvars
