@@ -2,6 +2,15 @@ provider "aws" {
   region = "ap-south-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket         = "terraform-state-backend-vamsee"
+    key            = "terraform/autoscaling/statefile"
+    region         = "us-west-1"
+    encrypt        = true
+  }
+}
+
 module "vpc" {
   source = "./modules/vpc"
 }
