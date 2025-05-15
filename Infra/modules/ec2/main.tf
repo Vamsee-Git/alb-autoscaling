@@ -1,7 +1,7 @@
 # modules/ec2/main.tf
 resource "aws_launch_template" "web" {
   name_prefix = "web-template"
-  image_id = "ami-0abcdef1234567890" # Replace with latest Amazon Linux 2 AMI
+  image_id = "ami-0e35ddab05955cf57" # Replace with latest Amazon Linux 2 AMI
   instance_type = "t3.micro"
   user_data = base64encode(file("user_data.sh"))
 }
