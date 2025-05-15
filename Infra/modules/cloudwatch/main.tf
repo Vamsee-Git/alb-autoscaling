@@ -23,3 +23,9 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   }
   alarm_actions = [aws_sns_topic.alerts.arn]
 }
+
+variable "asg_name" {
+  description = "The name of the Auto Scaling Group to monitor"
+  type        = string
+}
+
