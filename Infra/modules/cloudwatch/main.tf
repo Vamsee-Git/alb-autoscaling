@@ -5,7 +5,7 @@ resource "aws_sns_topic" "alerts" {
 resource "aws_sns_topic_subscription" "email_alert" {
   topic_arn = aws_sns_topic.alerts.arn
   protocol  = "email"
-  endpoint  = "your-email@example.com"  # Replace with your email
+  endpoint  = "jvamsidhar@example.com"  # Replace with your email
 }
 
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   namespace           = "AWS/EC2"
   period              = 120
   statistic           = "Average"
-  threshold           = 80
+  threshold           = 40
   alarm_description   = "This metric monitors high CPU usage"
   dimensions = {
     AutoScalingGroupName = var.asg_name
