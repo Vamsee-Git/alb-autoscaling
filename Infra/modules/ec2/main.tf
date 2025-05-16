@@ -4,6 +4,10 @@ resource "aws_launch_template" "web" {
   image_id = "ami-0e35ddab05955cf57" # Replace with latest Amazon Linux 2 AMI
   instance_type = "t3.micro"
   user_data = base64encode(file("user_data.sh"))
+  network_interfaces {
+    associate_public_ip_address = true
+    security_groups             = [var.]
+  }
 }
 
 resource "aws_autoscaling_group" "web_asg" {
